@@ -227,3 +227,16 @@ lifecycleScope.launch {
    }
 }
 ```
+
+또한 리스트를 내리다보면 스크롤 위치를 조정해야할 때가 있다, 새롭게 리스트에 추가되는 아이템들 때문에 스크롤 위치가 깨지는 경우가 많은데
+
+이때, 다음과 같은 코드를 사용하면 스크롤 위치를 조정할 수 있다
+
+```kotlin
+lifecycleScope.launch {
+    adapter.loadStateFlow
+        .distinctUntilChangedBy { it.refresh }
+        .filter { it.refresh is LoadState.NotLoading }
+        .collect { binding.list.scrollToPosition(0) }
+}
+```
