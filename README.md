@@ -197,12 +197,13 @@ class GithubPagingSource(
 
 ## Paging 설정 : PagingData
 
-- 어떤 API를 사용할건지?
+어떤 API를 사용할건지?
     - Flow (Pager.flow)
     - LiveData (Pager.liveData)
     - Rx.Flowable (Pager.flowable)
     - Rx.Observable (Pager.observable)
-- Parameters
+
+Parameters
     - PagingConfig
         - 아이템을 로드하는 방법(초기 로드 사이즈 같은 거)을 설정
         - 반드시 넣어야 하는 패러미터는 페이지 크기
@@ -212,4 +213,3 @@ class GithubPagingSource(
             - Minimum value of (pageSize + prefetchDistance * 2)
         - 아직 로딩하지 않은 아이템들에 대해서 PlaceHolder를 보여주는게 default이다 이거 싫으면
             - enablePlaceholders = false 지정
-    -
