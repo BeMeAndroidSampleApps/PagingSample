@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
         val decoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
 
         binding.list.addItemDecoration(decoration)
-        binding.list.adapter = adapter
+        binding.list.adapter = adapter.withLoadStateFooter(
+            footer = RepoLoadStateAdapter { adapter.retry() }
+        )
         setUi()
     }
 

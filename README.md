@@ -240,3 +240,14 @@ lifecycleScope.launch {
         .collect { binding.list.scrollToPosition(0) }
 }
 ```
+
+## 데이터 로딩 상태 보여주기 - LoadStateAdapter
+
+헤더나 푸터에 데이터 로딩 상태 혹은 네트워크 에러를 보여주고 싶을 때, LoadState를 사용한다
+
+다음을 구현하면 된다
+- 로딩/에러 상태를 보여줄 **UI**
+- LoadState 기반의 UI를 보여줄 ViewHolder
+- LoadStateAdapter
+
+
