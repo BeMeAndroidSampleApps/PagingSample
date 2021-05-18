@@ -18,12 +18,3 @@ data class Repo(
     @field:SerializedName("forks_count") val forks: Int,
     @field:SerializedName("language") val language: String?
 )
-
-/**
- * RepoSearchResult from a search, which contains List<Repo> holding query data,
- * and a String of network error state.
- */
-sealed class RepoSearchResult {
-    data class Success(val data: List<Repo>) : RepoSearchResult()
-    data class Error(val error: Exception) : RepoSearchResult()
-}

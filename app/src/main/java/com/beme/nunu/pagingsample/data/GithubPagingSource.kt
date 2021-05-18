@@ -31,6 +31,8 @@ class GithubPagingSource(
             val response = service.searchRepos(apiQuery, currentPosition, params.loadSize)
             val repos = response.items
             val nextKey =
+                // 이러는 이유, Paging3는 초반 로딩할 때 기존 Loading Size의 3배만큼 더 로딩함
+                // 쓸모없는 네트워크 요청을 많이 보내지 않게 하기 위해 초반에 많은 데이터를 받아오고 페이징
                 if (repos.isEmpty()) null else currentPosition + (params.loadSize / NETWORK_PAGE_SIZE)
             LoadResult.Page(
                 data = repos,
