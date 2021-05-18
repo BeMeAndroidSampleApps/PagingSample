@@ -213,3 +213,17 @@ Parameters
             - Minimum value of (pageSize + prefetchDistance * 2)
         - 아직 로딩하지 않은 아이템들에 대해서 PlaceHolder를 보여주는게 default이다 이거 싫으면
             - enablePlaceholders = false 지정
+
+## RecyclerViewAdapter -> ListAdapter랑 판박이인 PagingDataAdapter
+
+ListAdapter와 마찬가지로 PagingDataAdapter 역시 submitData 함수를 활용하여 데이터를 업데이트 한다!
+
+그러나, Flow를 사용하는만큼 lifecycleScope에서 collect를 해야한다.
+
+```kotlin
+lifecycleScope.launch {
+   viewModel.searchRepo(query).collectLatest {
+       adapter.submitData(it)
+   }
+}
+```
