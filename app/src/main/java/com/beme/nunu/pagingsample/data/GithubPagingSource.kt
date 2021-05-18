@@ -7,7 +7,7 @@ import com.beme.nunu.pagingsample.api.IN_QUALIFIER
 import com.beme.nunu.pagingsample.model.Repo
 
 private const val GITHUB_STARTING_PAGE_INDEX = 1
-const val NETWORK_PAGE_SIZE = 10
+const val NETWORK_PAGE_SIZE = 50
 
 class GithubPagingSource(
     private val service: GithubService,
